@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HomeComponent],
+  imports: [HomeComponent, HeaderComponent],
   template: `
     <main>
-      <header class="brand-name">
-        <img class="brand-logo" src="/assets/logo.svg" alt="logo" aria-hidden="true">
-      </header>
+      <app-header [links]="navLinks"></app-header>
       <section class="content">
         <app-home></app-home>
       </section>
@@ -19,4 +18,10 @@ import { HomeComponent } from './home/home.component';
 })
 export class AppComponent {
   title = 'homes';
+  navLinks = [
+    { label: 'Inicio' },
+    { label: 'Contacto' },
+    { label: 'Acerca de' }
+  ];
+
 }
